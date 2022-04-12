@@ -1,3 +1,13 @@
+'''
+Author: bob
+Date: 2022-04-12 16:32:17
+LastEditors: bob
+LastEditTime: 2022-04-12 16:41:15
+FilePath: \PictureOfText\pic2txt.py
+Description: 
+
+Copyright (c) 2022 by bob, All Rights Reserved. 
+'''
 # 我是B站的UP主：偶尔有点小迷糊
 # 代码讲解视频：https://www.bilibili.com/video/BV1mq4y1n7aE/
 # 转载请保留此信息
@@ -7,6 +17,7 @@
 # 此代码适用于python初学者，零基础或负基础的就别折腾了，书到用时方恨少哇
 
 import sys
+import os
 
 try:
     import pillow
@@ -21,7 +32,7 @@ font = ImageFont.truetype('AliPuHui-Bold.ttf', CHILD_W)     # 字体及大小,�
 
 # 程序入口
 if __name__ == '__main__':
-    imgSrc = Image.open(sys.argv[1])                        # 打开源图像
+    imgSrc = Image.open('rem.PNG')                        # 打开源图像
     w, h = imgSrc.size                                      # 源图像宽和高
     
     imgChild = Image.new("RGB", (CHILD_W, CHILD_H))         # 新建子图
@@ -45,8 +56,8 @@ if __name__ == '__main__':
             charIndex += 1                                  # 序号加1，从而依次绘制每个字
             if charIndex == len(txt):                       # 循环绘制
                 charIndex = 0
-    
-    imgDst.save(sys.argv[2])                                # 保存图片
+    print("图片处理完成！")
+    imgDst.save('output.png')                                # 保存图片
 
 
 
